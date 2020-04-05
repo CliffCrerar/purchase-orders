@@ -25,6 +25,7 @@ import { SupplierUpdateComponent } from 'src/app/components/3.home/2.suppliers/s
 import { SuppliersComponent } from 'src/app/components/3.home/2.suppliers/suppliers.component';
 // Entry
 import { WhoopsDialogComponent } from 'src/app/components/static/whoops/whoops.component';
+import { AboutComponent } from './about.component';
 
 // Declarations
 const p = '';
@@ -33,7 +34,7 @@ export default {
 
   declarations: [
     // tslint:disable-next-line: max-line-length
-    LandingComponent, LogoSvgComponent, HomeComponent, PurchaseOrdersComponent, SuppliersComponent, PriceComponent, ProductsComponent, WhoopsDialogComponent, SupplierRetrieveComponent, SupplierCreateComponent, SupplierUpdateComponent, PoCreateComponent, PoRetrieveComponent, PoUpdateComponent, CompanyProfileComponent, SettingsComponent, AddsComponent, PriceRetrieveComponent, PriceCreateComponent, PriceUpdateComponent, GenericCardHeaderComponent, RemapHeadingsPipe, FormatAmountPipe, FormatDatePipe
+    LandingComponent, LogoSvgComponent, HomeComponent, PurchaseOrdersComponent, SuppliersComponent, PriceComponent, ProductsComponent, WhoopsDialogComponent, SupplierRetrieveComponent, SupplierCreateComponent, SupplierUpdateComponent, PoCreateComponent, PoRetrieveComponent, PoUpdateComponent, CompanyProfileComponent, SettingsComponent, AddsComponent, PriceRetrieveComponent, PriceCreateComponent, PriceUpdateComponent, GenericCardHeaderComponent, RemapHeadingsPipe, FormatAmountPipe, FormatDatePipe, AboutComponent
   ],
   entryComponents: [WhoopsDialogComponent]
 };

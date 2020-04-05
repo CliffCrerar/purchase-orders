@@ -36,7 +36,7 @@ function ServerAPIProcess() {
 
   const
     args = join(apiProcess, '../index.js'),
-    apiProcess = spawn('node', [args], cpOptions('inherit', dbProcessCWD));
+    apiProcess = spawn('node', [args], cpOptions('inherit', apiProcessCWD));
 
   dbProcess.on('message', (msg) => console.log('MAIN-SERVER:', msg));
 

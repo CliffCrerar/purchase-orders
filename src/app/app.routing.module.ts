@@ -8,6 +8,7 @@ import { ProductsComponent } from 'src/app/components/3.home/3.products/products
 import { CompanyProfileComponent } from './components/settings/company-profile/company-profile.component';
 import { PriceComponent } from 'src/app/components/3.home/4.price/price.component';
 import { SupplierCreateComponent } from 'src/app/components/3.home/2.suppliers/supplier-create/supplier-create.component';
+import { AboutComponent } from './about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -48,6 +49,13 @@ const routes: Routes = [
         component: ProductsComponent,
         data: {
           workspaceTitle: 'Manage Products'
+        }
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+        data: {
+          workspaceTitle: 'About'
         }
       }
     ]

@@ -16,6 +16,7 @@
 
   <!-- ICON LIST -->
   <mat-list>
+
     <mat-list-item *ngFor="let link of sideNavLinks">
       <button
         [routerLink]="link.route"
@@ -26,64 +27,79 @@
         <mat-icon>{{link.icon}}</mat-icon>
       </button>
     </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      <button
+        [routerLink]="['/','main','about']"
+        class="side-nav-icon"
+        mat-icon-button
+        routerLinkActive="active-icon">
+        <mat-icon>info</mat-icon>
+      </button>
+    </mat-list-item>
+
   </mat-list>
+
+  <!-- ABOUT ICON -->
+
+  <mat-list></mat-list>
 
 </section>
 
 <section class="h-100 w-100">
 
-<mat-drawer-container class="main-content-drawer h-100 position-relative">
+  <mat-drawer-container class="main-content-drawer h-100 position-relative">
 
-  <mat-drawer
-    #drawer
-    mode="side"
-    opened="true">
+    <mat-drawer
+      #drawer
+      mode="side"
+      opened="true">
 
-    <nav>
-      <mat-toolbar color="{{toolBarColor}}">{{MenuCaption}}</mat-toolbar>
+      <nav>
+        <mat-toolbar color="{{toolBarColor}}">{{MenuCaption}}</mat-toolbar>
+        <mat-divider></mat-divider>
+
+        <mat-list>
+          <mat-list-item *ngFor="let link of sideNavLinks">
+            <button
+              class="side-nav-btn"
+              [routerLink]="link.route"
+              routerLinkActive="active-button"
+              class="side-nav-button"
+              mat-button>
+              {{link.caption}}
+            </button>
+          </mat-list-item>
+
+          <mat-divider></mat-divider>
+
+          <mat-list-item>
+            <button
+              class="side-nav-btn"
+              [routerLink]="['/','main','about']"
+              routerLinkActive="active-button"
+              class="side-nav-button"
+              mat-button>
+              About
+            </button>
+          </mat-list-item>
+
+        </mat-list>
+      </nav>
+
+    </mat-drawer>
+
+    <mat-drawer-content class="flex-one">
+
+      <mat-toolbar color="{{toolBarColor}}">{{selectedSpace}}</mat-toolbar>
       <mat-divider></mat-divider>
-
-      <mat-list>
-        <mat-list-item *ngFor="let link of sideNavLinks">
-          <button
-            class="side-nav-btn"
-            [routerLink]="link.route"
-            routerLinkActive="active-button"
-            class="side-nav-button"
-            mat-button>
-            {{link.caption}}
-          </button>
-        </mat-list-item>
-      </mat-list>
-    </nav>
-
-  </mat-drawer>
-
-  <mat-drawer-content class="flex-one">
-
-    <mat-toolbar color="{{toolBarColor}}">{{selectedSpace}}</mat-toolbar>
-    <mat-divider></mat-divider>
-
-    <!-- <nav mat-tab-nav-bar>
-      <a mat-tab-link *ngFor="let link of sideNavLinks"
-         (click)="activeLink = link"
-         [active]="activeLink == link"> {{link}} </a>
-      <a mat-tab-link disabled>Disabled Link</a>
-    </nav> -->
-
 
       <router-outlet></router-outlet>
 
-      <!-- <mat-card *ngIf="signifier" class="m-5 d-inline-block">
-        <mat-card-content>
-          <mat-card-title>
-            <h1 class="display-3 m-0 p-4">Please select an option from the menu.</h1>
-          </mat-card-title>
-        </mat-card-content>
-      </mat-card> -->
+    </mat-drawer-content>
 
-  </mat-drawer-content>
-
-</mat-drawer-container>
+  </mat-drawer-container>
 
 </section>
