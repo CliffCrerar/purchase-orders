@@ -1,4 +1,4 @@
-# PO Demo 2
+# Progressive Web app demo
 
 Requirements: Build a great UI and design for a great UX.
 
@@ -8,7 +8,7 @@ Requirements: Build a great UI and design for a great UX.
 - Web API: `ExpressJs`
 - Data Store: `PouchDb`
 
-**PEAN** ;P `Pouchdb`, `Expressjs`, `Angular`, `NodeJs`
+**PEAN** -> `Pouchdb`, `Expressjs`, `Angular`, `NodeJs`
 
 #### Style Library
 

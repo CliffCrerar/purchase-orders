@@ -70,5 +70,26 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
+  },
+  "description": "Requirements: Build a great UI and design for a great UX.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CliffCrerar/purchase-orders.git"
+  },
+  "keywords": [
+    "angular",
+    "progressive",
+    "web",
+    "app",
+    "demo",
+    "pwa",
+    "ng",
+    "po"
+  ],
+  "author": "Cliff Crerar",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/CliffCrerar/purchase-orders/issues"
   }
 }

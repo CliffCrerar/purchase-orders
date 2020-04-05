@@ -53,6 +53,7 @@ export class CompanyProfileComponent implements OnInit, OnDestroy {
       .then(allDocsRes => this.populateFormOnStart(allDocsRes.rows[0].doc))
       .catch(allDocsErr => {
         this.snackBarGo('Error while trying to fetch data');
+        this.dbApiCompany.sync();
         console.log(allDocsErr);
       });
 
