@@ -1,0 +1,35 @@
+<!-- STATIC MENU -->
+<button
+  class="mr-2"
+  mat-mini-fab
+  [matMenuTriggerFor]="settingsMenu">
+  <mat-icon>settings</mat-icon>
+</button>
+
+<mat-menu #settingsMenu="matMenu">
+  <!-- ACTIVE CONTROLS -->
+  <button
+    mat-menu-item
+    [routerLink]="['/','admin-entity']">
+    Company
+  </button>
+  <!-- ACTIVE CONTROLS -->
+  <!-- DEMO CONTROLS -->
+  <button
+    mat-menu-item
+    (click)="openWhoops()">
+    About
+  </button>
+
+  <mat-divider>
+  </mat-divider>
+
+  <button
+    mat-menu-item
+    (click)="openWhoops()">
+    Help
+  </button>
+  <!-- DEMO CONTROLS -->
+
+</mat-menu>
+<!-- STATIC MENU -->

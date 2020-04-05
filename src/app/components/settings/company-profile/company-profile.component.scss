@@ -1,0 +1,41 @@
+:host{
+  position: relative;
+  margin: auto
+}
+
+
+.form-field{
+  min-width: 300px;
+}
+
+.form-field-small{
+  min-width: 50px;
+  max-width: 150px;
+}
+
+
+// form css
+
+.ng-touched{
+  // border: 1px solid orange !important
+}
+
+.ng-untouched{
+  // border: 1px solid blue !important
+}
+
+.ng-pristine{
+  // background: rgba(0, 0, 255, 0.185) !important
+}
+
+input.ng-dirty	{
+  // background: rgba(128, 128, 128, 0.363) !important
+}
+
+input.ng-valid{
+  // color: green !important;
+}
+
+input.ng-invalid{
+    // color: red !important;
+}

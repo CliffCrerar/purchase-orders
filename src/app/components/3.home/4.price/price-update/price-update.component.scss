@@ -1,0 +1,39 @@
+@import 'src/styles/theme.scss';
+
+:host {
+
+}
+
+.mat-dialog-container{
+
+
+}
+
+$marginOffset: 24px;
+
+.mat-modify-dialog-toolbar{
+  // margin-top: calc(#{$marginOffset} * -1);
+  // margin-left: calc(#{$marginOffset} * -1);
+
+}
+
+
+button{
+
+  &.close{
+    border: 0;
+    padding: 0;
+    border: 50%;
+    background: none;
+    outline: none;
+    .icon{
+      &:hover{
+        cursor: pointer;
+        color: map-get($mat-accent, 'dark') !important;
+        transform: scale(1.1);
+      }
+    }
+
+  }
+
+}

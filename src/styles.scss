@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./styles/theme.scss";
+@import "./styles/css-rad.scss";
+
+html,
+body {
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: #f0f0f0
+}
+
+.root-child{
+  position: relative;
+  nav{
+    z-index: 1000;
+  }
+}
+
+nav{
+  // position: fixed;
+  width: 100%;
+}
+
+main{
+  // position: fixed;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.flex-one {
+  flex: 1;
+}
+
+.root-child{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap-header {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.responsive-div-to-center{
+
+}
+
+@media only screen and (max-widt: 420px){
+  responsive-div-to-center{
+    text-align: center !important;
+  }
+}
+
+
+.retrieve-header{
+  font-weight: 200;
+}
+
+.create-title{
+  font-weight: 300;
+  font-size: 3em;;
+}
+
+.mat-tab-body-wrapper{
+  flex: 1;
+}
+
+
+.mat-tab-card{
+  // max-height: 100%;
+  height: auto;
+}
+
+.soft-corners{
+  border-radius: 3px !important;
+  overflow: hidden;
+}

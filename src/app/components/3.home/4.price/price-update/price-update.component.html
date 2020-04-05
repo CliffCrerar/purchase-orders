@@ -1,0 +1,124 @@
+<div>
+  <mat-toolbar>
+    <mat-toolbar-row class="d-flex justify-content-between align-items-center pr-2">
+
+      <h1>{{dialogTitle}}</h1>
+      <button
+        class="close"
+        matTooltip="close dialog"
+        (click)="onCloseDialogClick()">
+        <mat-icon class="icon">highlight_off</mat-icon>
+      </button>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div class="mt-3">
+  <mat-card>
+
+    <mat-card-content>
+
+      <!-- FORM -->
+
+      <form
+        class="text-center"
+        #priceModifyForm="ngForm"
+        NgForm>
+
+        <mat-form-field
+          class="price-description ml-3"
+          color="accent"
+          appearance="outline">
+          <mat-label>Description</mat-label>
+          <input
+            required
+            matInput
+            [(ngModel)]="model.priceDescription"
+            type="text"
+            name="priceDescription"
+            placeholder="new price description">
+        </mat-form-field>
+
+        <mat-form-field
+          class="ml-3"
+          color="accent"
+          appearance="outline">
+          <mat-label>Price amount</mat-label>
+          <input
+            required
+            matInput
+            [pattern]="validationRegexp"
+            type="number"
+            name="price"
+            min="0.10"
+            #priceInput
+            [(ngModel)]="model.price"
+            placeholder="new price description">
+        </mat-form-field>
+
+        <mat-form-field
+          class="ml-3"
+          color="accent"
+          appearance="outline">
+          <mat-label>For Supplier</mat-label>
+          <mat-select
+            #selectSupplier
+            name="supplier"
+            ngModel>
+            <mat-option>None</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field
+          class="ml-3"
+          color="accent"
+          appearance="outline">
+          <mat-label>For Product</mat-label>
+          <mat-select
+            [disabled]="selectSupplier"
+            name="product"
+            ngModel>
+            <mat-option>None</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div>
+          <button
+          (click)="onDeleteClick()"
+          mat-stroked-button
+          color="warn">
+          <div class="d-flex flex-row align-items-center">
+          <mat-icon>delete_forever</mat-icon> <div>Delete Price</div>
+        </div>
+        </button>
+        </div>
+
+      </form>
+
+      <!-- FORM -->
+    </mat-card-content>
+  </mat-card>
+
+  <mat-toolbar class="mt-3 d-flex justify-content-between">
+    <button
+      mat-button
+      (click)="onClickCancel()"
+      color="primary">
+      <div class="d-flex flex-row align-items-center">
+        <mat-icon>not_interested</mat-icon> <div>CANCEL</div>
+      </div>
+    </button>
+
+    <button
+      mat-raised-button
+      (click)="onUpdateClick()"
+      [disabled]="!priceModifyForm.dirty"
+      color="accent">
+      <div class="d-flex flex-row align-items-center">
+        <mat-icon>update</mat-icon> <div>UPDATE</div>
+      </div>
+    </button>
+  </mat-toolbar>
+  <!-- <mat-card-footer></mat-card-footer> -->
+
+</div>

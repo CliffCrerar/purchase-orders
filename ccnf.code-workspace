@@ -1,0 +1,31 @@
+{
+	"folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "/Users/cliff/git/pouchdb-serve"
+    }
+  ],
+	"settings": {
+    "angular-template-formatter.indentWidth": 2,
+    "angular-template-formatter.useSpaces": true,
+    "angular-template-formatter.closeTagSameLine": true,
+    "material-icon-theme.activeIconPack": "angular",
+    "cSpell.words": [
+      "Datepicker"
+    ],
+    "[html]": {
+      "editor.defaultFormatter": "stringham.angular-template-formatter"
+    },
+    "ngschematics.schematics": [
+      "@angular/material"
+    ],
+    "angularKarmaTestExplorer.debugMode": true,
+    "angularKarmaTestExplorer.karmaConfFilePath": "karma.conf.js",
+    "angularKarmaTestExplorer.projectRootPath": "./",
+    "angularKarmaTestExplorer.projectType": "AngularCLI",
+    "angular.log": "terse"
+
+	}
+}

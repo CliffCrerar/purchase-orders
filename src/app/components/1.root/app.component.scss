@@ -1,0 +1,48 @@
+/**
+  App component style file
+*/
+
+.adds-section{
+  border: 1px solid #cfcfcf
+}
+
+.nav-flex{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-toolbar{
+  text-align: center;
+}
+
+.img-con{
+  width: 100%;
+}
+
+.img-con img{
+  height: 35px;
+}
+
+.sidenav-icons{
+  background: #fafafa;
+  display: inline-block;
+  height: auto;
+}
+
+@media only screen and (max-width: 550px){
+  .mid-nav{
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .right-nav{
+    display:none;
+  }
+  .img-con{
+    text-align: center;
+  }
+}

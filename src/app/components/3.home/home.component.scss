@@ -1,0 +1,38 @@
+:host{
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  display: flex;
+}
+
+.main-content{
+
+  flex-direction: column;
+}
+
+.main-content-drawer{
+  flex:1;
+}
+
+.side-nav-button{
+  width: 100%;
+  text-align: left;
+}
+
+.side-nav-btn{
+  border: 1px solid transparent;
+}
+
+.active-button{
+  border: 1px solid grey;
+}
+
+.side-nav-icon{
+  border: 1px solid transparent;
+}
+
+.active-icon{
+  border: 1px solid grey;
+}

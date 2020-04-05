@@ -1,0 +1,48 @@
+
+<section class="p-3">
+  <mat-card>
+
+      <!-- <mat-card-title-group> -->
+      <div class="d-flex align-items-center justify-content-between">
+
+        <div>
+          <mat-card-title style="font-weight: 200;">Supplier Master</mat-card-title>
+          <mat-card-subtitle>{{showDate()}}</mat-card-subtitle>
+        </div>
+        <!-- </mat-card-title-group> -->
+
+        <div class="d-flex align-items-center">
+
+          <button
+            [matTooltip]="searchSupplierTooltip"
+            class="mr-3"
+            color="primary"
+            (click)="onAddSupplierClick()"
+            mat-mini-fab>
+            <mat-icon>add</mat-icon>
+          </button>
+
+          <p>
+            <mat-form-field
+              appearance="standard"
+              [matTooltip]="addSupplierTooltip">
+              <mat-label>Search</mat-label>
+              <input
+                matInput
+                placeholder="Start typing to filter">
+              <mat-icon matSuffix>search</mat-icon>
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+          </p>
+
+        </div>
+
+      </div>
+
+      <mat-divider></mat-divider>
+      <div class="mt-3">
+        <mat-list-item>No suppliers yet</mat-list-item>
+      </div>
+
+  </mat-card>
+</section>

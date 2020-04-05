@@ -1,0 +1,45 @@
+{
+  "log": {
+    "file": "./src/api/couchdb-like/logs/log.txt",
+    "level": "debug"
+  },
+  "replicator": {
+    "db": "_replicator"
+  },
+  "couch_httpd_auth": {
+    "authentication_db": "_users",
+    "timeout": "600",
+    "secret": "1681851221761501cf1da19510d1561a01ac10b1ab122102",
+    "iterations": "10",
+    "allow_persistent_cookies": "false"
+  },
+  "httpd": {
+    "rewrite_limit": "100",
+    "port": "5984",
+    "bind_address": "0.0.0.0",
+    "enable_cors": "true"
+  },
+  "vendor": {
+    "name": "PouchDB authors",
+    "version": "4.2.0"
+  },
+  "uuids": {
+    "max_count": "1000"
+  },
+  "couchdb": {
+    "max_document_size": "4294967296",
+    "database_dir": "src/api/couch-like/data",
+    "uuid": "0028be34-ecb0-492f-a062-b483e0bdd910"
+  },
+  "pouchdb_server": {
+    "in_memory": "false",
+    "sqlite": "false",
+    "no-stdout-logs": "false"
+  },
+  "cors": {
+    "credentials": "true",
+    "methods": "GET, HEAD, POST, PUT, DELETE, COPY,PATCH",
+    "origins": "*",
+    "headers": "accept, accept-language, content-language, content-type, Authorization, Origin, Referer"
+  }
+}

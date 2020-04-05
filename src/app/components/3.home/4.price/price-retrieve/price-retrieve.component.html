@@ -1,0 +1,59 @@
+<!-- Price Retrieve -->
+<section class="p-3 h-100">
+  <mat-card class="mat-tab-card">
+
+    <!-- TODO: Make header generic -->
+    <!-- HEADER -->
+    <app-generic-header
+      (addButtonClickEvent)="onAddButtonClick($event)"
+      (searchBarKeyEvent)="onSearchBarKey($event)"
+      [headerTitle]="headerTitle"
+      [btnTooltip]="btnTooltip"
+      [searchBarToolTip]="btnTooltip"></app-generic-header>
+    <!-- HEADER -->
+    <mat-card-content class="mt-3 position-relative flex-one">
+
+      <div
+        *ngIf="noPrices"
+        class="position-relative">
+        No Prices yet
+      </div>
+
+      <mat-list class="mat-elevation-z2 p-0 soft-corners">
+
+        <mat-list-item class="header">
+          <div class="price-list-grid w-100">
+            <div *ngFor="let heading of (headings | processRawHeadings : 'prices')">{{heading}}</div>
+          </div>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <ng-container *ngFor="let priceItem of prices;let i = index">
+
+          <mat-list-item
+            class="list-item-hover"
+            (click)="onClickOpenModifyDialog(priceItem)">
+
+            <div class="price-list-grid w-100">
+              <div class="d-flex align-items-center">
+                <div>{{i}}</div>
+                <!-- <mat-icon class="edit-icon">edit</mat-icon> -->
+              </div>
+              <div>{{priceItem.priceDescription}}</div>
+              <div>{{priceItem.price | formatAmount}}</div>
+              <div>{{priceItem.dateCreated | formatDate}}</div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+          </mat-list-item>
+
+        </ng-container>
+
+      </mat-list>
+
+    </mat-card-content>
+
+  </mat-card>
+</section>

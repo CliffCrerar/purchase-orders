@@ -1,0 +1,101 @@
+<div class="root-child">
+
+  <nav>
+    <mat-toolbar
+      color="primary"
+      class="mat-elevation-z5">
+
+      <div class="nav-flex">
+        <!-- left -->
+        <div class="flex-one left-nav">
+          <div>{{left}}</div>
+        </div>
+        <!-- mid -->
+        <div class="flex-one text-center mid-nav">
+          <div hidden>mid content</div>
+        </div>
+        <!-- right -->
+        <div class="flex-one text-right right-nav d-flex justify-content-end align-items-center">
+
+          <!-- IF WELCOME SCREEN -->
+          <div *ngIf="welcome;else appControls">
+            <div>
+              <small>by</small>
+              C1i44
+            </div>
+          </div>
+          <!-- IF WELCOME SCREEN -->
+
+          <!-- ELSE -->
+          <ng-template #appControls>
+            <div class="d-flex flex-row align-items-center mr-2">
+              <mat-icon>account_box</mat-icon>
+              <div>{{userName}}</div>
+            </div>
+
+            <!-- SETTINGS PROTO -->
+
+            <!-- STATIC MENU -->
+            <app-settings></app-settings>
+            <!-- STATIC MENU -->
+
+            <!-- EXIT FAB -->
+            <button
+              mat-mini-fab
+              [routerLink]="['/','welcome']">
+              <mat-icon>exit_to_app</mat-icon>
+            </button>
+
+          </ng-template>
+          <!-- ELSE -->
+        </div>
+
+      </div>
+
+    </mat-toolbar>
+  </nav>
+
+  <main class="flex-one position-relative">
+
+      <!-- MAIN ROUTER -->
+      <router-outlet></router-outlet>
+      <!-- MAIN ROUTER -->
+
+
+    <!-- <section class="adds-section w-15 h-100 position-relative">
+      <app-adds></app-adds>
+    </section> -->
+
+  </main>
+
+  <footer>
+
+    <mat-toolbar
+      class="mat-elevation-z10 footer-toolbar"
+      color="primary">
+
+      <div class="img-con d-flex justify-content-center align-items-center">
+
+        <div style="font-weight: 100;font-size: 1.5rem">Material</div>
+
+        <img
+          class="img-fluid"
+          style="height: 38px;"
+          src="https://material.angular.io/assets/img/homepage/angular-white-transparent.svg">
+
+        <div
+          class="mr-2 ml-1"
+          style="border: 1px solid white; height: 30px; width: 2px;"></div>
+
+        <img
+          class="img-fluid"
+          src="https://cdn-cloudflare.ga/assets/site-logo/angular/logo-nav@2x.png"
+          alt="angular svg">
+
+      </div>
+
+    </mat-toolbar>
+
+  </footer>
+
+</div>

@@ -1,0 +1,67 @@
+<section class="p-3">
+  <mat-card>
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <!-- <mat-card-title-group> -->
+          <mat-card-title style="font-weight: 200;">Mat card title</mat-card-title>
+          <mat-card-subtitle>{{showDate()}}</mat-card-subtitle>
+        <!-- </mat-card-title-group> -->
+      </div>
+      <div class="form-save-cancel-action">
+        <button
+          (click)="onCancelClick()"
+          mat-stroked-button
+          color="warn">
+          Cancel
+        </button>
+        <button
+          class="ml-3 pt-1 pb-1 pl-5 pr-5"
+          mat-raised-button
+          (click)="saveForm(supplierForm)"
+          color="accent">
+          SAVE
+        </button>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <div class="pt-3">
+        <!-- FORM -->
+        <form
+          #supplierForm="ngForm"
+          NgForm>
+
+          <!-- Loop my merged array -->
+          <ng-container *ngFor="let key of formDefinition; let i = index">
+
+            <!-- If the array element is a heading then mat card title -->
+            <div *ngIf="isKeyHeading(key); else formInputs">
+              <mat-card-title>{{key}}</mat-card-title>
+            </div>
+
+            <!-- If the array element is a heading then mat card title -->
+            <ng-template #formInputs>
+
+              <mat-form-field class="mr-3 mt-4">
+                <mat-label>{{key}}</mat-label>
+                <input
+                  [name]="key"
+                  [(ngModel)]="model[key]"
+                  required
+                  matInput
+                  [type]="determineType(key)">
+              </mat-form-field>
+
+              <br *ngIf="i===6">
+
+            </ng-template>
+
+          </ng-container>
+
+        </form>
+        <!-- FORM -->
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>

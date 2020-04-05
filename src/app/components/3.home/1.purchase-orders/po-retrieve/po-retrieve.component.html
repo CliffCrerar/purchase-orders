@@ -1,0 +1,62 @@
+<section class="section-form-content">
+
+  <mat-card color="default">
+
+    <mat-card-header class="wrap-header justify-content-between align-items-baseline">
+
+      <mat-card-title class="m-0">
+        <div class="responsive-div-to-center">
+        <button
+          mat-mini-fab
+          color="primary"
+          (click)="addNewPurchaseOrder()"
+          [matTooltip]="newButtonTooltip">
+          <mat-icon>add</mat-icon>
+        </button>
+        </div>
+      </mat-card-title>
+
+      <mat-card-title-group>
+        <mat-card-title class="display-3">Purchase Order Master</mat-card-title>
+      </mat-card-title-group>
+
+
+        <mat-form-field
+          color="accent"
+          read-only
+          class="m-0"
+          [matTooltip]="datePickerTooltip"
+          appearance="outline">
+          <mat-label>Period ending:</mat-label>
+          <input
+            #inp
+            color="accent"
+            matInput
+            (focus)="inp.blur()"
+            [matDatepicker]="finPeriodDatePicker"
+            read-only>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="finPeriodDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker
+            color="accent"
+            #finPeriodDatePicker
+            disabled="false"></mat-datepicker>
+        </mat-form-field>
+
+
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+
+      <mat-list>
+        <mat-list-item>No Purchase orders yet.</mat-list-item>
+      </mat-list>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</section>
