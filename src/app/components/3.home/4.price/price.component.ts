@@ -47,7 +47,7 @@ export class PriceComponent implements OnInit, OnDestroy {
   }
 
   passAlongEvent(component: PriceRetrieveComponent) {
-    component.getPricesDataFromIdb();
+    // component.getPricesDataFromIdb();
     // console.log('param: ', param);
     // console.log('Pass along event');
   }

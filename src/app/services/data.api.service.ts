@@ -37,7 +37,9 @@ export abstract class Collection {
   set config(collection: string) {
     this.local = collection;
     this.collectionName = collection;
+    this.configSet();
   }
+
 
   testConfig(remoteOrLocal: 'remote' | 'local'): void {
     // Test local pouchdb config
@@ -60,6 +62,10 @@ export abstract class Collection {
   showSnackError = (err) => this.snackBar.open('# ERR! ' + err.message);
 
   setRemote = (): string => this.remote = this.collectionName;
+
+  configSet(): void {
+    this.subject.next('REMOTE-SET');
+  }
 
   async getData() {
     const documents = await this._local.allDocs();

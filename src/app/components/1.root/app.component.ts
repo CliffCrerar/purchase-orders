@@ -42,6 +42,8 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((event: RouterEvent) =>
         (event instanceof NavigationEnd)
         && (this.welcome = (['/welcome', '/'].includes(event.url))));
+
+    this.firstTimeBrowser();
   }
 
   ngOnDestroy(): void {
@@ -52,6 +54,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   openWhoops() {
     this.whoopsDialog.open();
+  }
+
+
+  firstTimeBrowser() {
+    if (localStorage.getItem('firstTime')) {
+      console.log('Not First Time');
+    } else {
+      console.log('First Time');
+    }
   }
 
 }

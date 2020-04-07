@@ -46,32 +46,28 @@ export class PriceRetrieveComponent implements OnInit, OnDestroy {
     this.prices = [];
     this.headings = [];
     this.collection = new PriceCollection(this.snackBar);
+    this.collection.config = 'prices';
     this.headerTitle = 'Price List Master';
     this.btnTooltip = 'Add a new price';
     this.searchBarToolTip = 'Search filter the list';
     this.createPrices = new EventEmitter<boolean>();
-    this.collection.config = 'prices';
     this.subOne = new Subscription();
     this.subTwo = new Subscription();
+
   }
   /* HOOKS */
   ngOnInit(): void {
-    this.getPricesDataFromIdb();
-    this.changeListener = this.collection.local.changes({
-      since: 'now',
-      live: true,
-      include_docs: true
-    }).on('change', (change) => {
-      console.log('PRICE MAIN COMPONENT change: ', change);
-      this.getPricesDataFromIdb();
-      this.collection.sync();
-    }).on('complete', (info)=> {
-      console.log('Price component info: ', info);
-    }).on('error', (err) => {
-      console.log('Price component error: ', err);
+
+    // this.changeListener = this.activateChangeListener();
+
+    this.subOne = this.collection.dataEventListener.subscribe(dataEvent => {
+      if (dataEvent === 'REMOTE-SET') {
+        this.getPricesDataFromIdb();
+      }
     });
   }
   ngOnDestroy(): void {
+    this.subOne.unsubscribe();
     this.changeListener.cancel();
     delete this.collection;
   }
@@ -79,12 +75,19 @@ export class PriceRetrieveComponent implements OnInit, OnDestroy {
   showDate = () => new Date();
 
   getPricesDataFromIdb() {
-
     this.allDocs((docs) => {
+      console.log('docs: ', docs);
       this.noPrices = docs.total_rows === 0;
-      if (!this.noPrices) {
-        this.prices = docs.rows.map(({ doc }) => doc);
-        this.headings = Object.keys(this.prices[0]);
+      console.log('this.noPrices: ', this.noPrices);
+      if (this.noPrices) {
+        console.log('No prices');
+      } else {
+        try {
+          this.prices = docs.rows.map(({ doc }) => doc);
+          this.headings = Object.keys(this.prices[0]);
+        } catch (err) {
+          console.error(err);
+        }
       }
     });
   }
@@ -117,5 +120,21 @@ export class PriceRetrieveComponent implements OnInit, OnDestroy {
     this.collection.local.allDocs({ include_docs: true })
       .then(allDocs => callback(allDocs))
       .catch(allDocsErr => callback(allDocsErr));
+  }
+
+  activateChangeListener() {
+    return this.collection.local.changes({
+      since: 'now',
+      live: true,
+      include_docs: true
+    }).on('change', (change) => {
+      console.log('PRICE MAIN COMPONENT change: ', change);
+      this.getPricesDataFromIdb();
+      this.collection.sync();
+    }).on('complete', (info) => {
+      console.log('Price component info: ', info);
+    }).on('error', (err) => {
+      console.log('Price component error: ', err);
+    });
   }
 }

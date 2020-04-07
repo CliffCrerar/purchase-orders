@@ -18,6 +18,12 @@ body {
   background: #f0f0f0
 }
 
+code {
+  background: var(--primary-lighter-color);
+  padding: 2px;
+  border-radius: 2px;
+}
+
 .root-child{
   position: relative;
   nav{
@@ -85,3 +91,5 @@ main{
   border-radius: 3px !important;
   overflow: hidden;
 }
+
+

@@ -10,7 +10,8 @@ const
     configPath: process.cwd() + '/src/api/couchdb-like/config.json'
   },
   db = ExpressPouchDb(Pouchdb, { adapter: 'leveldb', overrideMode }), // pouchdb express integration
-  dbServer = express(); // devine express server
+  dbServer = express(), // devine express server
+  cors = $('./cors');
 
 dbServer.all('*', (req, res, next) => {
 
@@ -29,6 +30,10 @@ dbServer.all('*', (req, res, next) => {
   next();
 })
 
+dbServer.use(cors(db.couchConfig));
+
+dbServer.use(db);
+
 function startMessage() {
   console.log('|--------------------------------------------|')
   console.log('      POUCHDB running on port ' + PORT)
@@ -36,7 +41,8 @@ function startMessage() {
 }
 
 function startPouchServer() {
-  dbServer.use(db).listen(PORT, () => startMessage());
+
+  dbServer.listen(PORT, () => startMessage());
 };
 
 module.exports = startPouchServer;

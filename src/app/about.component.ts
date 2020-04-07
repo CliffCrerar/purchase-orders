@@ -6,6 +6,7 @@ import { Component, ViewChild } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as Markdown from 'markdown-it';
+import * as markdownItAttrs from 'markdown-it-attrs';
 import { ElementRef } from '@angular/core';
 
 @Component({
@@ -35,26 +36,29 @@ import { ElementRef } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  @ViewChild('mdDiv',{static: true}) mdDiv: ElementRef<HTMLDivElement>;
-
+  @ViewChild('mdDiv', { static: true }) mdDiv: ElementRef<HTMLDivElement>;
 
   private md: any;
   private markedUp: string;
 
-
   constructor(private http: HttpClient) {
     this.md = new Markdown();
     // this.mdContainer = new HTMLDivElement();
-
+    this.md.use(markdownItAttrs, {
+      // optional, these are default options
+      leftDelimiter: '{',
+      rightDelimiter: '}',
+      allowedAttributes: []  // empty array = all attributes are allowed
+    });
   }
 
   ngOnInit(): void {
     console.log('mdDiv: ', this.mdDiv);
     this.http.get('/readme').subscribe(
-      (res: {message: string}) => {
-         console.log( this.md.render(res.message));
+      (res: { message: string }) => {
+        console.log(this.md.render(res.message));
 
-         this.mdDiv.nativeElement.innerHTML = this.md.render(res.message);
+        this.mdDiv.nativeElement.innerHTML = this.md.render(res.message);
 
       },
       err => { console.log(err); }

@@ -4,6 +4,7 @@ var corser = require('corser');
 
 module.exports = function (config) {
   console.log('RUN CORS');
+  // const config = require( __dirname + '/config.json');
   var corsMiddleware;
   function corsChanged() {
     console.log('CORS CHANGED');
