@@ -38,7 +38,7 @@
     "gh": "^2.8.6",
     "markdown-it": "^12.3.2",
     "markdown-it-attrs": "^3.0.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "pouchdb": "^7.2.1",
     "pouchdb-adapter-http": "^7.2.1",
     "pouchdb-adapter-idb": "^7.2.1",
@@ -51,7 +51,7 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.4",
+    "@angular-devkit/build-angular": "~16.0.1",
     "@angular/cli": "~9.1.0",
     "@angular/compiler-cli": "~9.0.3",
     "@angular/language-service": "~9.0.3",
